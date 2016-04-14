@@ -1,11 +1,4 @@
-/**
- * Created by esattahaibis on 2016-02-11.
- */
-/**
- * Created by esattahaibis on 2016-02-04.
- * File name app.js
- * Desc contains custom JavaScript code for Esat's Bio
- */
+/// <reference path="../typings/tsd.d.ts" />
 
 (function(){
 	/* Crating array for dom objects */
@@ -78,8 +71,8 @@
 	// ------------------ Banner Ad section ----------------------
 
 	//global variables
-	var screenWidth = 480;
-	var screenHeight = 60;
+	var screenWidth = 600;
+	var screenHeight = 70;
 
 	// reference to canvas element
 	var canvas = document.getElementById("canvas");
@@ -89,11 +82,9 @@
 	// create a stage container object
 	var stage = new createjs.Stage(canvas);
 
-	var helloLabel = null;
-	var helloLabelMove = 5;
+	var infoText = null;
 
-	var button = null;
-	var buttonMove = 5;
+	var callToAction = null;
 
 	function init() {
 		console.log("Initialization");
@@ -103,7 +94,7 @@
 		// set frame rate to 60 fps
 		createjs.Ticker.framerate = 60;
 		// listen for frame changes and call the animationLoop function
-		createjs.Ticker.addEventListener("tick", animationLoop);
+		createjs.Ticker.on("tick", animationLoop);
 
 		// call the main function
 		main();
@@ -127,6 +118,8 @@
 
 	// this is where all the magic happens
 	function main() {
+		
+		infoText = new createjs.Text
 		/*button = new createjs.Bitmap('/COMP1073%20-%20Lesson12%20-%20master/Assets/images/button.jpg');
 		 button.regX = button.getBounds().width * 0.5;
 		 button.regY = button.getBounds().height * 0.5;
