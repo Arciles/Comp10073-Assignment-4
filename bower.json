@@ -18,6 +18,10 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "font-awesome": "^4.5.0"
+    "font-awesome": "^4.5.0",
+    "EaselJS": "easeljs#^0.8.2",
+    "SoundJS": "^0.6.2",
+    "TweenJS": "^0.6.2",
+    "PreloadJS": "^0.6.2"
   }
 }

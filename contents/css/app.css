@@ -15,4 +15,8 @@ div.modal-content .container {
 	margin: 110px auto 0 auto;
 	padding-top: 10px;
 	background-color: #18BC9C;
+	text-align: center;
+}
+#canvas {
+	background-color: snow;
 }
