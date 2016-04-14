@@ -1,0 +1,18 @@
+.portfolio-modal .modal-content {
+	padding-bottom: 0;
+	padding-top: 50px;
+	min-height: 110%;
+}
+
+div.modal-content .container {
+	width: 80%;
+}
+.modal-open .modal {
+	overflow-y: hidden;
+}
+
+.canvas-container {
+	margin: 110px auto 0 auto;
+	padding-top: 10px;
+	background-color: #18BC9C;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Comp1073 - Assignment 3.5",
+  "homepage": "https://github.com/Arciles/Comp10073-Assignment-3",
+  "authors": [
+    "Esat IBIS <esat.taha.ibis@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.5.0"
+  }
+}
