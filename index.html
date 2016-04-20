@@ -29,9 +29,40 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
+
+	<script>
+		var canvas, stage, exportRoot;
+		function init() {
+			// --- write your JS code here ---
+
+			canvas = document.getElementById("canvas");
+			images = images||{};
+
+			var loader = new createjs.LoadQueue(false);
+			loader.addEventListener("fileload", handleFileLoad);
+			loader.addEventListener("complete", handleComplete);
+			loader.loadManifest(lib.properties.manifest);
+		}
+
+		function handleFileLoad(evt) {
+			if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+		}
+
+		function handleComplete(evt) {
+			exportRoot = new lib.firstanimation();
+
+			stage = new createjs.Stage(canvas);
+			stage.addChild(exportRoot);
+			stage.update();
+
+			createjs.Ticker.setFPS(lib.properties.fps);
+			createjs.Ticker.addEventListener("tick", stage);
+		}
+
+	</script>
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" onload="init();">
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -323,6 +354,7 @@
 	<!-- Custom Theme JavaScript -->
 	<script src="scripts/lib/freelancer.js"></script>
 	<script src="scripts/app.js"></script>
+	<script src="scripts/banner.js"></script>
 
 </body>
 

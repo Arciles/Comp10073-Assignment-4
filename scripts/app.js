@@ -70,7 +70,7 @@
 
 	// ------------------ Banner Ad section ----------------------
 
-	//global variables
+	/*//global variables
 	var screenWidth = 600;
 	var screenHeight = 70;
 
@@ -104,13 +104,13 @@
 
 	function animationLoop() {
 
-		/*helloLabel.rotation += 5;*/
-		/*button.rotation += 5;*/
+		/!*helloLabel.rotation += 5;*!/
+		/!*button.rotation += 5;*!/
 		infoText.x += infoTextMove;
-		/*button.x += buttonMove;*/
+		/!*button.x += buttonMove;*!/
 		if ((infoText.x >= screenWidth) || (infoText.x <= 0)) {
 			infoTextMove *= -1;
-			/*buttonMove *= -1;*/
+			/!*buttonMove *= -1;*!/
 			if (infoToggle){
 				infoText.regX = 0;
 				infoToggle = false;
@@ -139,7 +139,7 @@
 			window.location.href = "#portfolio";
 		});
 
-		/*button = new createjs.Bitmap('/COMP1073%20-%20Lesson12%20-%20master/Assets/images/button.jpg');
+		/!*button = new createjs.Bitmap('/COMP1073%20-%20Lesson12%20-%20master/Assets/images/button.jpg');
 		 button.regX = button.getBounds().width * 0.5;
 		 button.regY = button.getBounds().height * 0.5;
 		 button.scaleX = 0.3;
@@ -167,11 +167,11 @@
 
 		 button.on('mouseout', function() {
 		 button.alpha = 1;
-		 });*/
+		 });*!/
 
 
 	}
 
-	window.onload = init;
+	window.onload = init;*/
 
 })();
