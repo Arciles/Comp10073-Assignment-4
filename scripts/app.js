@@ -1,6 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-(function(){
+(function () {
 	/* Crating array for dom objects */
 	var domObjects = new Array();
 	domObjects.push(document.getElementById("paragraphOne"));
@@ -15,13 +15,13 @@
 	/* Function that responsible creation of XMLHttp object*/
 	function createXMLHttp() {
 		var request;
-		if(window.ActiveXObject){
+		if (window.ActiveXObject) {
 			try {
 				request = new ActiveXObject("Microsoft.XMLHTTP");
-			}catch (e) {
+			} catch (e) {
 				request = false;
 			}
-		}else {
+		} else {
 			try {
 				request = new XMLHttpRequest();
 			} catch (e) {
@@ -29,9 +29,9 @@
 			}
 		}
 
-		if(!request) {
+		if (!request) {
 			alert("Something went wrong object couldn't created. Try again Later!")
-		}else {
+		} else {
 			return request;
 		}
 	}
@@ -41,11 +41,11 @@
 	request.send();
 	// This event listener listens state changes in the XMLHttp request object
 	// if the ready state is 4 which means object is ready to read, after that we inject our text into HTML
-	request.addEventListener('readystatechange', function() {
-		if (request.readyState == 4){
+	request.addEventListener('readystatechange', function () {
+		if (request.readyState == 4) {
 			//var text = new Object();
 			var index = 0;
-			 var text = JSON.parse(request.responseText);
+			var text = JSON.parse(request.responseText);
 			console.log(text);
 
 			for (key in text) {
@@ -55,7 +55,7 @@
 		}
 	});
 	
-	document.getElementById("btnSend").addEventListener("click", function(){
+	document.getElementById("btnSend").addEventListener("click", function () {
 		alert("You succesfully sent your massage!");
 		console.log('success');
 		//this.className += ' scroll-top page-scroll';
@@ -84,10 +84,12 @@
 
 	var infoText = null;
 
-	var callToAction = null;
+	var infoTextMove = 2;
 
+	var infoToggle = true;
 	function init() {
 		console.log("Initialization");
+
 		// enable mouseover effects for all buttons
 		stage.enableMouseOver(20);
 
@@ -99,27 +101,44 @@
 		// call the main function
 		main();
 	}
+
 	function animationLoop() {
-		/*helloLabel.rotation += 5;
-		 button.rotation += 5;
-		 helloLabel.x += helloLabelMove;
-		 button.x += buttonMove;
-		 if ((helloLabel.x >= screenWidth) || (helloLabel.x <= 0)) {
-		 helloLabelMove *= -1;
-		 buttonMove *= -1;
-		 }
 
-		 // refresh the stage object
-		 stage.update();*/
+		/*helloLabel.rotation += 5;*/
+		/*button.rotation += 5;*/
+		infoText.x += infoTextMove;
+		/*button.x += buttonMove;*/
+		if ((infoText.x >= screenWidth) || (infoText.x <= 0)) {
+			infoTextMove *= -1;
+			/*buttonMove *= -1;*/
+			if (infoToggle){
+				infoText.regX = 0;
+				infoToggle = false;
+			}else {
+				infoText.regX = infoText.getMeasuredWidth();
+				infoToggle = true;
+			}
+		}
 
-
-
+		// refresh the stage object
+		stage.update();
 	}
 
 	// this is where all the magic happens
 	function main() {
-		
-		infoText = new createjs.Text
+
+		infoText = new createjs.Text("Check out my Awesome Projects", "20px Lato", "#000");
+		infoText.regX = infoText.getMeasuredWidth();
+		infoText.regY = infoText.getMeasuredHeight() * 0.5;
+		infoText.x = screenWidth * 0.5;
+		infoText.y = screenHeight * 0.5;
+
+		stage.addChild(infoText);
+
+		stage.on("click", function () {
+			window.location.href = "#portfolio";
+		});
+
 		/*button = new createjs.Bitmap('/COMP1073%20-%20Lesson12%20-%20master/Assets/images/button.jpg');
 		 button.regX = button.getBounds().width * 0.5;
 		 button.regY = button.getBounds().height * 0.5;
@@ -149,8 +168,6 @@
 		 button.on('mouseout', function() {
 		 button.alpha = 1;
 		 });*/
-
-
 
 
 	}
